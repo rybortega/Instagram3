@@ -1,6 +1,5 @@
 package com.example.parsagram.fragments;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.parsagram.Post;
+import com.example.parsagram.models.Post;
 import com.example.parsagram.R;
 import com.example.parsagram.adapters.PostsAdapter;
 import com.parse.FindCallback;

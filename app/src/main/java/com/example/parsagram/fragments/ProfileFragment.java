@@ -10,11 +10,10 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.parsagram.LoginActivity;
-import com.example.parsagram.Post;
+import com.example.parsagram.activities.LoginActivity;
+import com.example.parsagram.models.Post;
 import com.example.parsagram.R;
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;

@@ -1,20 +1,23 @@
 package com.example.parsagram.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.annotation.GlideModule;
-import com.example.parsagram.Post;
+import com.example.parsagram.activities.PostDetailsActivity;
+import com.example.parsagram.models.Post;
 import com.example.parsagram.R;
 import com.parse.ParseFile;
+import org.parceler.Parcels;
 
 import java.util.List;
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
@@ -54,7 +57,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         notifyDataSetChanged();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView tvUsername;
         private TextView tvDescription;
         private ImageView ivPostImage;
@@ -65,6 +68,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvUsername = itemView.findViewById(R.id.tvUsername);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             ivPostImage = itemView.findViewById(R.id.ivPostImage);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Post post) {
@@ -75,6 +79,17 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 Glide.with(context)
                         .load(image.getUrl())
                         .into(ivPostImage);
+            }
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                Post post = posts.get(position);
+                Intent i = new Intent(context, PostDetailsActivity.class);
+                i.putExtra("post", Parcels.wrap(post));
+                context.startActivity(i);
             }
         }
     }
