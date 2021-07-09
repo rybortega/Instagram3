@@ -1,4 +1,4 @@
-# Project 4 - *Parsagram*
+# Project 4 - Instagram3
 
 **Parsagram** is a photo sharing app using Parse as its backend.
 
@@ -41,7 +41,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 <p align="center">
-   <img src="Parsagram.gif"  width="50%" height="50%" />
+   <img src="Par"  width="50%" height="50%" />
    <br> Required Features <br>
   
    GIF created with [Kap](https://getkap.co/).
